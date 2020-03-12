@@ -1,0 +1,66 @@
+{
+    "stock": [
+        {
+            "id": 1,
+            "amount": 3
+        },
+        {
+            "id": 2,
+            "amount": 5
+        },
+        {
+            "id": 3,
+            "amount": 2
+        },
+        {
+            "id": 4,
+            "amount": 1
+        },
+        {
+            "id": 5,
+            "amount": 5
+        },
+        {
+            "id": 6,
+            "amount": 10
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "title": "Cap black DAMN",
+            "price": 46.29,
+            "image": "//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Snapback white DAMN",
+            "price": 52.10,
+            "image": "//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M00-0E-95-rBVaR1uMg2-AcsagAACOK02fPkc184.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Snapback red DAMN",
+            "price": 46.59,
+            "image": "//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M00-1A-F9-rBVaSFuMg3CAcs9cAADeDPD1knI118.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Snapback black with red DAMN",
+            "price": 52.69,
+            "image": "//www.dhresource.com/webp/m/0x0s/f2-albu-g7-M01-2A-8D-rBVaSVuMg3CAOZVQAACVHqlfUcA503.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Snapback Weekend Astro World",
+            "price": 72.23,
+            "image": "https://www.dhresource.com/webp/m/0x0s/f2-albu-g10-M00-F5-28-rBVaVl0ewTSAUoCKAADAFJ7mX5M365.jpg/moda-ajust-vel-chap-u-the-weeknd-snapback.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Snapack Orange Skate Paranoid",
+            "price": 58.99,
+            "image": "//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-09-C0-rBVaR1qh8XiALF4ZAAA4dBi7YOk055.jpg/moda-ver-o-todos-os-correspondentes-carta.jpg"
+        }
+    ]
+}
