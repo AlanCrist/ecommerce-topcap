@@ -1,82 +1,51 @@
 import React from 'react';
+import { connect } from "react-redux";
 import { MdAddShoppingCart } from "react-icons/md"
+import api from "../../services/api";
 import { ProductList } from "./styles";
 
-export default function Home() {
-  return (
-    <ProductList>
-      <li>
-        <img src="//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg" alt="Cap" />
-        <strong>Cap black DAMN</strong>
-        <span>$ 40.99</span>
+class Home extends React.Component {
+  state = {
+    products: []
+  }
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img src="//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg" alt="Cap" />
-        <strong>Cap black DAMN</strong>
-        <span>$ 40.99</span>
+  async componentDidMount() {
+    const response = await api.get("products");
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img src="//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg" alt="Cap" />
-        <strong>Cap black DAMN</strong>
-        <span>$ 40.99</span>
+    this.setState({ products: response.data });
+  }
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img src="//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg" alt="Cap" />
-        <strong>Cap black DAMN</strong>
-        <span>$ 40.99</span>
+  handleAddProduct = product => {
+    const { dispatch } = this.props;
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img src="//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg" alt="Cap" />
-        <strong>Cap black DAMN</strong>
-        <span>$ 40.99</span>
+    dispatch({
+      type: "ADD_TO_CART",
+      product,
+    })
+  }
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
-          </div>
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img src="//www.dhresource.com/webp/m/0x0s/f2-albu-g6-M01-08-63-rBVaSFuMg3CAAAWGAAC1BiLeTbA734.jpg/ajust-vel-casual-snapbacks-homens-maldita.jpg" alt="Cap" />
-        <strong>Cap black DAMN</strong>
-        <span>$ 40.99</span>
+  render() {
+    const { products } = this.state;
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#fff" /> 3
+    return (
+      <ProductList>
+        {products.map(product => (
+          <li key={product.id}>
+            <img src={product.image} alt={product.title} />
+            <strong>{product.title}</strong>
+            <span>$ {product.price}</span>
+
+            <button type="button" onClick={() => this.handleAddProduct(product)}>
+              <div>
+                <MdAddShoppingCart size={16} color="#fff" /> 3
           </div>
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-    </ProductList>
-  );
+              <span>ADICIONAR AO CARRINHO</span>
+            </button>
+          </li>
+        ))}
+      </ProductList>
+    )
+  }
 }
+
+export default connect()(Home);
